@@ -16,7 +16,9 @@
         render() {
           return (
             <div>
-              Hello {this.props.name}
+              <h4>
+                Hello {this.props.name}
+              </h4>
             </div>
           );
         }
@@ -26,8 +28,8 @@
         render() {
           return (
             <div>
-              <HelloMessage name="ggfsdfgsdf"></HelloMessage>
-              <div>sdfasdfasdf</div>
+              <HelloMessage name={this.props.counter}></HelloMessage>
+              <div>{this.props.counter}</div>
             </div>
           );
         }
@@ -38,10 +40,18 @@
       //   document.getElementById('root')
       // );
 
-      ReactDOM.render(
-        <HelloMessage2/>,
-        mountNode
-      );
+      var counter = 0;
+
+      function Tick() {
+          ReactDOM.render(
+          <HelloMessage2 counter={counter++}/>,
+          mountNode
+        );
+      }
+
+      setInterval(() => {
+        Tick();
+      }, 1000);
 
     </script>
     <!--
