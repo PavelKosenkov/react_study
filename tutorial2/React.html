@@ -10,10 +10,37 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+      var mountNode = document.getElementById('root');
+
+      class HelloMessage extends React.Component {
+        render() {
+          return (
+            <div>
+              Hello {this.props.name}
+            </div>
+          );
+        }
+      }
+
+      class HelloMessage2 extends React.Component {
+        render() {
+          return (
+            <div>
+              <HelloMessage name="ggfsdfgsdf"></HelloMessage>
+              <div>sdfasdfasdf</div>
+            </div>
+          );
+        }
+      }
+
+      // ReactDOM.render(
+      //   <h1>Hello, world!</h1>,
+      //   document.getElementById('root')
+      // );
 
       ReactDOM.render(
-        <h1>Hello, world!</h1>,
-        document.getElementById('root')
+        <HelloMessage2/>,
+        mountNode
       );
 
     </script>
