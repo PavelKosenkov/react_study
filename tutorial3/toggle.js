@@ -1,22 +1,27 @@
 class ToggleButton extends React.Component {
     constructor(props){
         super(props);
-        this.state = {isToggled : true};
-
-        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            isToggled : true,
+            test : ''
+        };
     }
 
     render(){
         return(
-            <button onClick={this.handleClick}>
-                {this.state.isToggled ? "On" : "Off"}
-            </button>
+            <div>
+                {this.state.test}
+                <button onClick={this.handleClick.bind(this, 't1')}>
+                    {this.state.isToggled ? "On" : "Off"}
+                </button>
+            </div>
         );
     }
 
-    handleClick(){
+    handleClick(testParam){
         this.setState(prevState=>({
-            isToggled : !prevState.isToggled
+            isToggled : !prevState.isToggled,
+            test : testParam + prevState.test
         }));
     }
 }
