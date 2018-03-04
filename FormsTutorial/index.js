@@ -22,8 +22,12 @@ class FormClass extends React.Component {
         return ( 
             <div>
                 <form action="">
+                    <SelectComponent/>
+                    <br/>
                     <textarea name="ta" id="" value={this.state.testText} onChange={this.handleTextChange}></textarea>
+                    <br/>
                     <input type="text" value={this.state.testText} name="testText" id="testText" onChange={this.handleTextChange}/>
+                    <br/>
                     <input type="submit" value="Submit" onClick={this.handleSubmit}/>
                 </form>
             </div>
