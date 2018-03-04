@@ -1,5 +1,14 @@
 const listArray = [1,2,3,4,5]
 
+function EmpaddedListItem(props){
+    const data = props.data;
+    return (
+        <ul>
+            {data.map(i=><li key={i}>{i}</li>)}
+        </ul>
+    )
+}
+
 class ListItems extends React.Component
 {
     constructor(props){
@@ -18,6 +27,7 @@ class ListItems extends React.Component
 }
 
 ReactDOM.render(
-    <ListItems data={listArray}/>,
+    <EmpaddedListItem data={listArray}/>,
+    //<ListItems data={listArray}/>,
     document.getElementById("target")
 );

@@ -1,1 +1,2 @@
 it is as stupid as writing "return (" on the same string, cause otherwise it does not work.
+return should return an html element. It should always be present as a wrapper.
