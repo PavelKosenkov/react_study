@@ -35,7 +35,9 @@ class FormClass extends React.Component {
     }
 }
  
-ReactDOM.render(
-    <FormClass/>,
-    document.getElementById("target")
-);
+// ReactDOM.render(
+//     <FormClass/>,
+//     document.getElementById("target")
+// );
+
+ReactDOM.render(<input value="sdfsd" />, document.getElementById("target"));
