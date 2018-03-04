@@ -1,3 +1,13 @@
+
+function ConditionalRendering(props) {
+    if(props.render){
+        return(
+            <div><p>We are rendering!</p></div>
+        )
+    }
+    else{return false}
+}
+
 class ToggleButton extends React.Component {
     constructor(props){
         super(props);
@@ -14,6 +24,7 @@ class ToggleButton extends React.Component {
                 <button onClick={this.handleClick.bind(this, 't1')}>
                     {this.state.isToggled ? "On" : "Off"}
                 </button>
+                <ConditionalRendering render={this.state.isToggled}/>
             </div>
         );
     }
@@ -24,6 +35,7 @@ class ToggleButton extends React.Component {
             test : testParam + prevState.test
         }));
     }
+
 }
 
 ReactDOM.render(
