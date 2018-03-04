@@ -7,7 +7,8 @@ class ToDoApp extends React.Component{
         // this.handleSubmit = this.handleSubmit.bind(this);    
     }
 
-    render(){
+    render()
+    {
         return(
             <div>
                 dsafasdfsd
