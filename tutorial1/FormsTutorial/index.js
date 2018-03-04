@@ -22,7 +22,8 @@ class FormClass extends React.Component {
         return ( 
             <div>
                 <form action="">
-                    <input type="text" name="testText" id="testText" onChange={this.handleTextChange}/>
+                    <textarea name="ta" id="" value={this.state.testText} onChange={this.handleTextChange}></textarea>
+                    <input type="text" value={this.state.testText} name="testText" id="testText" onChange={this.handleTextChange}/>
                     <input type="submit" value="Submit" onClick={this.handleSubmit}/>
                 </form>
             </div>
