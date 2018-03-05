@@ -110,37 +110,6 @@ class Calculator extends React.Component {
     }
 }
 
-class Calculator_old extends React.Component{
-    constructor(props){
-        super(props)
-        this.state =
-        {
-            temperature : 0
-        }
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event) {
-        this.setState({
-            temperature : event.target.value
-        });
-    }
-
-    //fucking this is important for handlers. Otherwise they are undefined
-     render() {
-        return ( //this stupid line
-            <div>
-                <BoilingVerdict celsius={this.state.temperature}/>
-                <br/>
-                Celsius:
-                <input type="number" name="temperatureInput" id="temperatureInput" onChange={this.handleChange}/>
-                fahrenheit:
-                <input type="number" name="temperatureInputF" id="temperatureInputF" onChange={this.handleChange}/>
-            </div>
-        );
-    }
-}
-
 ReactDOM.render(
     <Calculator/>,
     document.getElementById("target")
