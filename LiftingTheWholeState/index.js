@@ -31,7 +31,7 @@ function tryConvert(temperature, convert) {
   
   
 
-class TemperatureUnit extends React.Component {
+class TemperatureInput extends React.Component {
     constructor(props){
         super(props)
         this.state = {temperature: ''};
@@ -83,7 +83,9 @@ class Calculator extends React.Component {
     }
 
     render() {
-        
+        const scale = this.state.scale;
+        const temperature = this.state.temperature;
+
         //a good use of an expression
         const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
         const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
