@@ -16,6 +16,48 @@ const dataSample = [
 //         ProductCategoryRow
 //         ProductRow
 
+class ProductTable extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <table>
+            </table>
+        )
+    }
+}
+
+class ProductCategoryRow extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+    render() {
+        return (
+             <tr>
+                <td colspan='2'>{props.category}</td>
+            </tr>
+        )
+    }
+}
+
+class ProductRow extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+    render() {
+        return (
+            <tr>
+                <td>{props.name}</td>
+                <td>{props.price}</td>
+            </tr>
+        )
+    }
+}
+
 
 ReactDOM.render(
     'Test',
