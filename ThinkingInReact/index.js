@@ -16,21 +16,6 @@ const dataSample = [
 //         ProductCategoryRow
 //         ProductRow
 
-class FilterableProductTable extends React.Component{
-    constructor(props){
-        super(props);
-    }
-
-    render() {
-        return (
-            <div>
-                <SearchBard data={dataSample}/>
-                <ProductTable data={dataSample}/>
-            </div>
-        )
-    }
-}
-
 class SearchBar extends React.Component{
     constructor(props){
         super(props);
@@ -39,11 +24,40 @@ class SearchBar extends React.Component{
     render () {
         return (
             <fieldset>
-                <Legend value="Product search"/>
+                <legend value="Product search"/>
                 <input type="text" name="nameSearch" id="nameSearch"/>
-                <Legend value="In stock"/>
+                <legend value="In stock"/>
                 <input type="checkbox" name="instockSearch" id="instockSearch"/>
             </fieldset>
+        )
+    }
+}
+
+class ProductCategoryRow extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+    render() {
+        return (
+             <tr>
+                <td colspan='2'>{this.props.category}</td>
+            </tr>
+        )
+    }
+}
+
+class ProductRow extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+    render() {
+        return (
+            <tr>
+                <td>{this.props.name}</td>
+                <td>{this.props.price}</td>
+            </tr>
         )
     }
 }
@@ -57,7 +71,7 @@ class ProductTable extends React.Component {
         let productList = [];
         let currentCategory = "";
 
-        props.propducts.forEach(item=>{
+        this.props.propducts.forEach(item=>{
             if(currentCategory == item.category){
                 productList.push(<ProductCategoryRow category={item.category}/>);
             }
@@ -72,37 +86,22 @@ class ProductTable extends React.Component {
     }
 }
 
-class ProductCategoryRow extends React.Component {
+class FilterableProductTable extends React.Component{
     constructor(props){
         super(props);
     }
 
     render() {
         return (
-             <tr>
-                <td colspan='2'>{props.category}</td>
-            </tr>
+            <div>
+                <SearchBar data={dataSample}/>
+                <ProductTable propducts={dataSample}/>
+            </div>
         )
     }
 }
-
-class ProductRow extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
-    render() {
-        return (
-            <tr>
-                <td>{props.name}</td>
-                <td>{props.price}</td>
-            </tr>
-        )
-    }
-}
-
 
 ReactDOM.render(
-    'Test',
+    <FilterableProductTable data={dataSample}/>,
     document.getElementById("target")
 );
