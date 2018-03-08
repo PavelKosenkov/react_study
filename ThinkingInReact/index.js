@@ -16,12 +16,55 @@ const dataSample = [
 //         ProductCategoryRow
 //         ProductRow
 
+class FilterableProductTable extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    render() {
+        return (
+            <div>
+                <SearchBard data={dataSample}/>
+                <ProductTable data={dataSample}/>
+            </div>
+        )
+    }
+}
+
+class SearchBar extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    render () {
+        return (
+            <fieldset>
+                <Legend value="Product search"/>
+                <input type="text" name="nameSearch" id="nameSearch"/>
+                <Legend value="In stock"/>
+                <input type="checkbox" name="instockSearch" id="instockSearch"/>
+            </fieldset>
+        )
+    }
+}
+
 class ProductTable extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        let productList = [];
+        let currentCategory = "";
+
+        props.propducts.forEach(item=>{
+            if(currentCategory == item.category){
+                productList.push(<ProductCategoryRow category={item.category}/>);
+            }
+            currentCategory = item.category;
+            productList.push(<ProductRow name={item.name} price={item.price}/>)            
+        });
+
         return (
             <table>
             </table>
